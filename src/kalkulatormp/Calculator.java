@@ -1,5 +1,6 @@
 package kalkulatormp;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Calculator {
@@ -33,6 +34,7 @@ public class Calculator {
 					break;
 					default: 
 						System.out.println("Invalid operator");
+						System.exit(1);
 						
 						
 					}
@@ -40,8 +42,12 @@ public class Calculator {
 			System.out.println ("Result: " + result);
 			scanner.close();
 			
+		} catch (InputMismatchException e) {
+			System.out.println("Invalid input, must be a numeric value");
+			System.exit(1);
 		} catch (Exception e) {
 			System.out.println("Error: " + e.getMessage());
+			System.exit(1);
 		}
 	}
 
